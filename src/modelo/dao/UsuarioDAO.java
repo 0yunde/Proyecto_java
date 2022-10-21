@@ -29,15 +29,6 @@ public class UsuarioDAO {
         usuarios = new ArrayList<>(); 
     }
     
-    
-    public void listar() {
-        for (int i = 0; i < usuarios.size(); i++) {
-            System.out.println(usuarios.get(i).getUsuario() + usuarios.get(i).getContrasenia()
-            );
-        }
-    }
-    
-   
     //este metodo recorrera nuestro arreglo  , para devolver un elemento que vamos a devolver por parametro
     public int buscar(String usuario) {
         int n=-1; //para encontrar usuario  con su respectiva identificacion que seria su nombre

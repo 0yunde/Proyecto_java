@@ -13,16 +13,10 @@ import modelo.dao.UsuarioDAO;
  */
 public class UsuarioLogic {
     //crear objeto 
-    private static UsuarioDAO usuariodao = new UsuarioDAO(); //asignando espacio en memoria
-    
-     //se crean metodos staticos es decir que no serra necesario crear nuevos objetos 
+    //se crean metodos staticos es decir que no sera necesario crear nuevos objetos 
     //para acceder a los metodos
-    
-    public static void listar(){
-        usuariodao.listar();
-       
-    }
-    
+    private static UsuarioDAO usuariodao = new UsuarioDAO(); //asignando espacio en memoria
+   
     //la autentificacion no se ara dentro de formulario si no aca en la logica se autentifica
     public static boolean autentificar(String usuario, String contrasenia){
         
@@ -38,7 +32,6 @@ public class UsuarioLogic {
         }else {
             return false;
         }
-        
     }
     
     //Se utuliza el metodo insertar de dao
