@@ -6,7 +6,7 @@ package vistas;
 
 import javax.swing.JOptionPane;
 import modelo.logic.UsuarioLogic;
-import modelo.beans.Usuario;
+
 /**
  *
  * @author Oyunde
@@ -19,6 +19,10 @@ public class FrmLogin extends javax.swing.JFrame {
     public FrmLogin() {
         initComponents();
         this.setLocationRelativeTo(null); //para centrar
+    }
+
+    FrmLogin(FrmPaginaPrincipal aThis, boolean b) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     /**
@@ -96,15 +100,11 @@ public class FrmLogin extends javax.swing.JFrame {
 
     private void btn_ingresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ingresarActionPerformed
         // TODO add your handling code here:
-        UsuarioLogic.listar();
         if(!txt_usuario.getText().isEmpty()&&!txt_contrasenia.getText().isEmpty()){
-            System.out.println(txt_usuario.getText() + txt_contrasenia.getText());
-            
-         
+
             if(UsuarioLogic.autentificar(txt_usuario.getText(), txt_contrasenia.getText())){
                 JOptionPane.showMessageDialog(this, "Bienvenido");
                 this.dispose();
-                
                 FrmPaginaPrincipal frmPaginaPrincipal = new FrmPaginaPrincipal(UsuarioLogic.obtener(txt_usuario.getText()));
                 frmPaginaPrincipal.setVisible(true);
             }else {
@@ -112,7 +112,7 @@ public class FrmLogin extends javax.swing.JFrame {
             }
             
         }else{
-            JOptionPane.showMessageDialog(this, "Falta ingresar usuario contraseña");
+            JOptionPane.showMessageDialog(this, "Falta ingresar usuario o contraseña");
         }
     }//GEN-LAST:event_btn_ingresarActionPerformed
 

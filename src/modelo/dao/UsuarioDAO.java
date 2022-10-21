@@ -14,12 +14,19 @@ import modelo.beans.Usuario;
  *
  * @author Oyunde
  */
+
+// este es el intermedio entre logic y usuario. crud.
+
 public class UsuarioDAO {
-    private List<Usuario> usuarios; // requerriimos un arraylist o una lista de usuarios
     
-    //generar constructor vacio 
+    //Se almacenara dentro de una lista de los obj que tenga usuario del modelo beans usuario
+    private List<Usuario> usuarios; //el nombre de la lista es usuarios
+    
+    
+    // Se genera constructor vacio para iniiciailiizar la lista
+    //crear diferentes metodos para hacer crud de usuarios, todos estos metodos seran publicos
     public UsuarioDAO() {
-        usuarios = new ArrayList<>(); //inicializando la lista creada que es usuarrio en el ccodigo de arriba.
+        usuarios = new ArrayList<>(); 
     }
     
     
@@ -30,21 +37,16 @@ public class UsuarioDAO {
         }
     }
     
-    
-    //crear diferentes metodos para hacer crud de usuarios, todos estos metodos seran publicos
-    
-    //recorrer todo el arreglo , para devolver por parametro la posicion en la que se encuentra nuestro elemento.
+   
+    //este metodo recorrera nuestro arreglo  , para devolver un elemento que vamos a devolver por parametro
     public int buscar(String usuario) {
-        int n=-1; //para encontrar usuario con su respectiva identificacion
+        int n=-1; //para encontrar usuario  con su respectiva identificacion que seria su nombre
         for (int i = 0; i < usuarios.size(); i++) {
-            System.out.println(usuarios.get(i).getUsuario() + usuario );
-            //primero devuelve un objeto , luego como se tiene el metodo get lo igualamos a usaurio
+            //primero devuelve un objeto , luego como se tiene el metodo get lo igualamos a nombre del usuario
             if(usuarios.get(i).getUsuario().equals(usuario)) {
                 n=i;
-                System.out.println("n" + n + "i" + i);
                 break;//para salir  del bucle
             }
-            
         }
         return n;
     }
@@ -79,6 +81,7 @@ public class UsuarioDAO {
     
     }
     
+    //Eliminar un usuario
     public boolean eliminar(String usuario) {
         if(buscar(usuario) != -1){
             
@@ -90,12 +93,13 @@ public class UsuarioDAO {
     
     }
     
-    //este servira para buscar en toda la lista de usuarios que se esta disponibe buscara en que posicion estara el elemento y luego lo devolvera
+    //este servira para buscar en toda la lista de usuarios que se esta disponibe 
+    // buscara en que posicion estara el elemento  y luego lo devolvera para realizar nuestro metodo obtener
     public Usuario obtener(String usuario) {
         if(buscar(usuario) != -1) {
             return usuarios.get(buscar(usuario));
         }else {
-            return null;
+            return null; //
         }
     
     }

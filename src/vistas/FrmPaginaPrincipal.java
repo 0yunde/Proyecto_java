@@ -18,7 +18,7 @@ public class FrmPaginaPrincipal extends javax.swing.JFrame {
     public FrmPaginaPrincipal(Usuario usuario) {
         initComponents();
          this.setLocationRelativeTo(null); //para centrar
-         lbl_usuario.setText(usuario.getNombres());
+         lbl_usuario.setText(usuario.getNombres() + " !!");
          
     }
 
@@ -41,8 +41,6 @@ public class FrmPaginaPrincipal extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel1.setText("Bienvenido");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, -1, -1));
-
-        lbl_usuario.setText("jLabel2");
         getContentPane().add(lbl_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(87, 9, -1, -1));
 
         lbl_fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/bienvenido.jpg"))); // NOI18N

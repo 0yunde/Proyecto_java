@@ -46,9 +46,7 @@ public class FrmRegistrarUsuario extends javax.swing.JDialog {
         jLabel1 = new javax.swing.JLabel();
         txt_repetirContrasenia = new javax.swing.JPasswordField();
         btn_registrar = new javax.swing.JButton();
-        btn_modificar = new javax.swing.JButton();
-        btn_eliminar = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
+        lbl_fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -99,27 +97,11 @@ public class FrmRegistrarUsuario extends javax.swing.JDialog {
                 btn_registrarActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_registrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(57, 376, -1, -1));
+        getContentPane().add(btn_registrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 370, -1, -1));
 
-        btn_modificar.setText("Modificar");
-        btn_modificar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_modificarActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btn_modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(249, 376, -1, -1));
-
-        btn_eliminar.setText("Eliminar");
-        btn_eliminar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_eliminarActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btn_eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(444, 376, -1, -1));
-
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/registro_usuario.jpg"))); // NOI18N
-        jLabel2.setText("jLabel2");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 570, 420));
+        lbl_fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/registro_usuario.jpg"))); // NOI18N
+        lbl_fondo.setText("jLabel2");
+        getContentPane().add(lbl_fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 570, 420));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -143,57 +125,17 @@ public class FrmRegistrarUsuario extends javax.swing.JDialog {
             
             Usuario usuario = new Usuario(txt_usuario.getText(), txt_contrasenia.getText(),
                     txt_nombres.getText(), txt_apellidos.getText(), txt_correo.getText());
-            
-            
-            System.out.println(usuario);
-            
+
             if(UsuarioLogic.insertar(usuario)) {
                 JOptionPane.showMessageDialog(this, "Usuario registrado exitosamente");
-                
-                System.out.println(usuario.getUsuario());
-                System.out.println(usuario.getContrasenia());
-                
-                UsuarioLogic.listar();
+                this.dispose();
             }else {
                 JOptionPane.showMessageDialog(this, "Usuario existente");
             }
+        }else{
+            JOptionPane.showMessageDialog(this, "Ingrese bien los datos");
         }
     }//GEN-LAST:event_btn_registrarActionPerformed
-
-    private void btn_modificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_modificarActionPerformed
-        // TODO add your handling code here:
-        if(!txt_nombres.getText().isEmpty() &&       
-                !txt_apellidos.getText().isEmpty()&& 
-                !txt_correo.getText().isEmpty() && 
-                !txt_usuario.getText().isEmpty() &&
-                !txt_contrasenia.getText().isEmpty() && 
-                txt_repetirContrasenia.getText().equals(txt_contrasenia.getText())){
-            
-            Usuario usuario = new Usuario(txt_usuario.getText(),
-                    txt_contrasenia.getText() , txt_nombres.getText(), txt_apellidos.getText(), txt_correo.getText());
-            if(UsuarioLogic.modificar(usuario)) {
-                JOptionPane.showMessageDialog(this, "Usuario modificado exitosamente");
-            }else {
-                JOptionPane.showMessageDialog(this, "Usuario no encontrado");
-            }
-           
-        }else{
-        }
-        
-    }//GEN-LAST:event_btn_modificarActionPerformed
-
-    private void btn_eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_eliminarActionPerformed
-        // TODO add your handling code here:
-        if(txt_usuario.getText().isEmpty()){
-            if(UsuarioLogic.eliminar(txt_usuario.getText())) {
-                JOptionPane.showMessageDialog(this, "Usuario eliminado exitosamente");
-            }else {
-                JOptionPane.showMessageDialog(this, "Usuario no encontrado");
-            }
-           
-        }else{
-        }
-    }//GEN-LAST:event_btn_eliminarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -238,14 +180,12 @@ public class FrmRegistrarUsuario extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_eliminar;
-    private javax.swing.JButton btn_modificar;
     private javax.swing.JButton btn_registrar;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel lbl_apellidos;
     private javax.swing.JLabel lbl_contrasenia;
     private javax.swing.JLabel lbl_correo;
+    private javax.swing.JLabel lbl_fondo;
     private javax.swing.JLabel lbl_nombres;
     private javax.swing.JLabel lbl_registroUsuarios;
     private javax.swing.JLabel lbl_usuarios;
